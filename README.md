@@ -15,7 +15,17 @@ This project aims to analyze house sales data in King County using regression mo
   - [Data Understanding](#data-understanding)
   - [Data Preparation](#data-preparation)
   - [Modeling](#modeling)
-  - [Evaluation](#evaluation)
+  - [Model Evaluation](#model-evaluation)
+    - [Data Split](#data-split)
+    - [Performance Metrics](#performance-metrics)
+    - [OLS Regression Results](#ols-regression-results)
+      - [Key Coefficients](#key-coefficients)
+  - [Business Recommendations](#business-recommendations)
+    - [1. Feature Impact Analysis](#1-feature-impact-analysis)
+    - [2. Renovation and Condition](#2-renovation-and-condition)
+    - [3. Handling Multicollinearity](#3-handling-multicollinearity)
+    - [4. Further Analysis](#4-further-analysis)
+    - [5. Model Improvement](#5-model-improvement)
   - [Deployment](#deployment)
   - [Installation](#installation)
 - [Clone the repository](#clone-the-repository)
@@ -57,10 +67,50 @@ In this stage, we build and refine models to predict housing prices:
 - **Loss Functions**: Employ appropriate loss functions like Mean Squared Error (MSE) for regression tasks.
 - **Performance Metrics**: Measure model performance using metrics such as R-squared and Root Mean Squared Error (RMSE).
 
-## Evaluation
-Assess whether the model meets the business objectives and performs effectively:
-- **Results Analysis**: Determine if the model’s predictions align with the expected outcomes and business goals.
-- **Iteration**: Based on evaluation results, revisit earlier steps if necessary to enhance model performance or refine data preparation.
+## Model Evaluation
+
+### Data Split
+- **Train-Test Split**: 75.0% - 25.0%
+
+### Performance Metrics
+- **Training Score**: 68.07%
+- **Test Score**: 64.84%
+
+### OLS Regression Results
+- **R-squared**: 0.681
+- **Adjusted R-squared**: 0.680
+- **F-statistic**: 1567.0
+- **Prob (F-statistic)**: 0.00
+- **Log-Likelihood**: -2.2124e+05
+- **AIC**: 4.425e+05
+- **BIC**: 4.427e+05
+
+#### Key Coefficients
+- **Waterfront**: +739,900 (Significant)
+- **Year Built**: -104,400 (Significant)
+- **Grade 13**: +2,219,000 (Significant)
+
+## Business Recommendations
+
+### 1. Feature Impact Analysis
+- **Waterfront**: Emphasize waterfront views in marketing materials to highlight the significant price increase associated with this feature.
+- **Grade**: Invest in property upgrades to improve the overall grade and thereby increase the property's value.
+- **Year Built**: Consider renovating older properties to enhance their value, as newer houses generally command higher prices.
+
+### 2. Renovation and Condition
+- **Condition**: Maintain and improve property conditions to maximize value. Properties in better condition achieve higher prices.
+- **Bedrooms and Bathrooms**: Evaluate the impact of adding or improving these features, considering their mixed influence on pricing.
+
+### 3. Handling Multicollinearity
+- **Multicollinearity**: Address potential multicollinearity issues by removing or combining highly correlated features. Explore Ridge or Lasso regression for better model stability.
+
+### 4. Further Analysis
+- **Residual Analysis**: Revisit data transformation methods to address non-normality in residuals and ensure compliance with regression assumptions.
+- **Feature Engineering**: Create interaction terms or polynomial features to capture complex relationships and improve model performance.
+
+### 5. Model Improvement
+- **Alternative Models**: Experiment with Ridge or Lasso regression to see if they offer better results and manage multicollinearity effectively.
+- **Cross-Validation**: Use cross-validation to validate model performance and ensure generalizability.
 
 ## Deployment
 If the model performs well, it will be deployed for practical use:
